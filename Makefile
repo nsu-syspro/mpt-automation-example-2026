@@ -22,5 +22,5 @@ check: $(TESTS)
 	@echo "Tests passed!"
 
 $(TESTS) : test/%.test : test/%.in main
-	@diff -u --color=always test/$*.expected <(./main <$^)
+	@./main <$^ | diff -u --color=always test/$*.expected -
 
