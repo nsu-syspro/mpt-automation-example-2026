@@ -1,9 +1,13 @@
+# Targets
 
+SRC := $(wildcard *.c *.h)
 
 # Rules
 
-main: main.c
-	cc main.c -o main
+#.DEFAULT_GOAL = main
+
+main: $(SRC)
+	cc $^ -o $@
 
 clean:
 	@echo "Cleaning..."
