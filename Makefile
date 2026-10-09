@@ -19,7 +19,8 @@ clean:
 	@rm -f main
 
 check: $(TESTS)
+	@echo "Tests passed!"
 
-$(TESTS) : test/%.test : test/%.in
+$(TESTS) : test/%.test : test/%.in main
 	@diff -u --color=always test/$*.expected <(./main <$^)
 
